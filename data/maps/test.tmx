@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32">
+  <image source="../images/tilesets/tileset.gif" trans="ffffff"/>
+ </tileset>
+ <layer name="Floor" width="25" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2TMQ6AIAxFWTQuKhNOGu8ILJ5emkhCfkpsYaXJW4D08Qk1ZpS04mDAEJT0OLwArSNA/ykxMyzgkGbC/sSaeBgceHyjgzIcRd8tsYOnzCTJgg7M4MDJZep1UI4LsmSskf2BP4etrHMOiYfOnt+9M3dlvdxreS8NmtnUzjjHCw0u9HFsBwAA
+  </data>
+ </layer>
+ <layer name="Obstacles" width="25" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwWEE1mXLUtGcUUA4AAconN2wHAAA=
+  </data>
+ </layer>
+ <layer name="Air" width="25" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkYBLQEAOYVIIGwHAAA=
+  </data>
+ </layer>
+</map>
