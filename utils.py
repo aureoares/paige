@@ -17,7 +17,16 @@ def loadImage(filename, transparent=False):
 			color = image.get_at((0,0))
 			image.set_colorkey(color, RLEACCEL)
 	return image
- 
+
+def loadText(text, x, y, color=(255, 255, 255), size=25):
+	'''Carga un texto y lo centra en las coordenadas dadas.'''
+	font = pygame.font.Font("data/fonts/Abscissa.ttf", size)
+	t = pygame.font.Font.render(font, text, 1, color)
+	t_rect = t.get_rect()
+	t_rect.centerx = x
+	t_rect.centery = y
+	return t, t_rect
+
 def decode(string):
 	'''Recibe una cadena con el contenido de una capa (codificada con base64 y comprimida con gzip).
 	Devuelve la lista de ID's de los tiles que contiene la capa.'''

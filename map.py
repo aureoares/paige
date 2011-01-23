@@ -155,30 +155,3 @@ class Layer:
 						if id >= tilesets[len(tilesets)-k-1].firstgid:
 							tilesets[len(tilesets)-k-1].drawTile(id, j, i, screen)
 							break
-
-def main():
-	pygame.init()
-	pygame.display.set_caption("Ngn Map Test")
-	icon = pygame.image.load("data/images/icon.png")
-	pygame.display.set_icon(icon)
-	mode_flags = 0
-	#mode_flags = pygame.FULLSCREEN
-	#mode_flags = pygame.NOFRAME
-	screen = pygame.display.set_mode((800, 600), mode_flags)
-	clock = pygame.time.Clock()
-
-	map = Map('test.tmx', 'back.jpg')
-
-	while True:
-		time = clock.tick(40)
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				self.quit()
-			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_ESCAPE:
-					sys.exit(0)
-		map.drawMap(screen)
-		pygame.display.flip()
- 
-if __name__ == '__main__':
-	main()
