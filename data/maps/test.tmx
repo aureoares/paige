@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32">
-  <image source="../images/tilesets/tileset.gif" trans="ffffff"/>
+ <tileset firstgid="1" name="Estacion" tilewidth="32" tileheight="32">
+  <image source="../images/tilesets/estacion.png" trans="00fefb"/>
  </tileset>
  <layer name="Floor" width="25" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+2TMQ6AIAxFWTQuKhNOGu8ILJ5emkhCfkpsYaXJW4D08Qk1ZpS04mDAEJT0OLwArSNA/ykxMyzgkGbC/sSaeBgceHyjgzIcRd8tsYOnzCTJgg7M4MDJZep1UI4LsmSskf2BP4etrHMOiYfOnt+9M3dlvdxreS8NmtnUzjjHCw0u9HFsBwAA
+   H4sIAAAAAAAAA1NgYGBQGMWjeAhi+VE8ikfxKB4iGADX0Y07bAcAAA==
   </data>
  </layer>
  <layer name="Obstacles" width="25" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGAWjYBSMglEwWEE1mXLUtGcUUA4AAconN2wHAAA=
+   H4sIAAAAAAAAA+2P2QqAIBBFhVZo33uo/v8zu4KBiJpk6kMdODgjlxmGEPdEHvRFzJT1BSxZXcGay1ASoefz4tyQZDB3kE+ZlAa2kn9VrcrrWOBqkHua/xojHDSvDR3s4WY5xwR+xwTnF2fL7tjh8eKOi/+Oe0LdIeME4Yd19WwHAAA=
   </data>
  </layer>
  <layer name="Air" width="25" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkYBLQEAOYVIIGwHAAA=
+   H4sIAAAAAAAAA2NgGAWjYBSMAtyAE4i5BtoRVACj/hhcYLj4g1gAAOL3cWNsBwAA
+  </data>
+ </layer>
+ <layer name="Collisions" width="25" height="19">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjgPqAlQ6YWDeQ6uZRgB1QGh/Emk1rQEs7Rv1Bnl20NHuw+AMAe+NTFGwHAAA=
   </data>
  </layer>
 </map>

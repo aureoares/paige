@@ -44,22 +44,26 @@ class Map:
 				if mainNode.childNodes[i].nodeName == "layer":
 					layer = Layer(mainNode.childNodes[i])
 					self.layers.append(layer)
-					if layer.name == 'Collisions': self.collisions = layer.getCollisions()
+					if layer.name == 'Collisions': self.collisions = layer.getCollisions(self.tilesets[0].tile_size)
 
 	def drawCollisions(self, screen):
 		'''Dibuja en el mapa los tiles de colisión.'''
 		self.collisions.draw(screen)
 
 	def drawBackground(self, screen):
+		'''Dibuja la imagen de fondo en la pantalla.'''
 		screen.blit(self.background, (0,0))
 
 	def drawFloor(self, screen):
+		'''Dibuja en pantalla la primera capa.'''
 		self.layers[0].drawLayer(screen, self.tilesets)
 
 	def drawObstacles(self, screen):
+		'''Dibuja en pantalla la segunda capa.'''
 		self.layers[1].drawLayer(screen, self.tilesets)
 
 	def drawAir(self, screen):
+		'''Dibuja en pantalla la tercera capa.'''
 		self.layers[2].drawLayer(screen, self.tilesets)
 
 	def drawMap(self, screen):
@@ -68,6 +72,7 @@ class Map:
 		self.drawFloor(screen)
 		self.drawObstacles(screen)
 		self.drawAir(screen)
+		#self.drawCollisions(screen)
 
 class Tileset:
 	def __init__(self, tilesetNode):
@@ -117,24 +122,29 @@ class Tileset:
 class Layer:
 	def __init__(self, layerNode):
 		layer = decode(layerNode.childNodes[1].childNodes[0].data.replace("\n", "").replace(" ", ""))
+		# Número de tiles por fila (ancho de la capa medido en tiles).
 		self.width = int(layerNode.attributes.get("width").value)
+		# Número de filas de tiles (alto de la capa medido en tiles).
 		self.height = int(layerNode.attributes.get("height").value)
+		# Nombre de la capa.
 		self.name = layerNode.attributes.get("name").value
+		# Matriz de ID's que representan los tiles de cada posición de la capa.
 		self.matrix = psplit(layer, self.width)
+		#self.printLayer()
 
-	def getCollisions(self):
-		'''Obtiene los puntos de colisión de una capa.'''
+	def getCollisions(self, tile_size):
+		'''Obtiene los puntos de colisión de una capa.
+		Devuelve un grupo de Sprites que representa las zonas de colisión.'''
 		collisions = pygame.sprite.Group()
 		for i in range(0,len(self.matrix)):
 			for j in range(0,len(self.matrix[i])):
 				id = self.matrix[i][j]
 				if id!=0:
-					rect = pygame.Rect(j*self.width, i*self.height, self.width, self.height)
 					sprite = pygame.sprite.Sprite(collisions)
-					sprite.image = loadImage("data/images/tile.png", True)
+					sprite.image = pygame.Surface(tile_size)
 					sprite.rect = sprite.image.get_rect()
-					sprite.rect.left = j*40
-					sprite.rect.top = i*40
+					sprite.rect.left = j*tile_size[0]
+					sprite.rect.top = i*tile_size[1]
 		return collisions
 
 	def printLayer(self):
